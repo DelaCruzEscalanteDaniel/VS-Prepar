@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario Oficial - Prepar</title>
+    <link rel="stylesheet" href="/styles/calendario.css">
+    <!-- Aquí puedes incluir los CDN de librerías de JS para calendarios si lo requieres, ej: FullCalendar -->
+</head>
+<header>
+    <img src="logo.png" alt="Logo de Prepar" class="logo">
+
+    <h1><a href="index.html">Prepar</a></h1>
+
+    <div class="header-acciones">
+        <h2><a href="iniciar-sesion.html">¿Deseas Iniciar Sesión?</a></h2>
+        <button id="theme-toggle" class="btn-modo-oscuro" aria-label="Cambiar modo oscuro">🌙</button>
+    </div>
+</header>
+
+    <nav>
+        <a href="convocatoria.html" class="active">Convocatoria y Proceso</a>
+        <a href="directorio.html">Directorio Público</a>
+        <a href="foro.html">Foro Vecinal</a>
+        <a href="fotodenuncias.html">Foto Denuncias</a>
+        <a href="mapa.html">Mapa de Proyectos</a>
+    </nav>
+
+    <nav class="subnav">
+        <a href="convocatoria.html">Convocatoria y Procesos</a>
+        <a href="calendario.html">Calendario Oficial</a>
+    </nav>
+
+    <main class="layout-calendario">
+        <section class="seccion-central">
+            <h1>Conoce el Calendario Oficial Actual</h1>
+            <p>Consulta las fechas importantes del Presupuesto Participativo en la Ciudad de México.</p>
+
+            <div class="calendario-contenedor-principal">
+                <!-- 
+                  NOTA DE DESARROLLO (JS): 
+                  Aquí se inyectará o renderizará dinámicamente el componente de calendario mediante JavaScript.
+                  Puedes inicializar tu script de calendario apuntando a este contenedor (ej. id="calendar-widget").
+                -->
+                <div id="calendar-widget" class="calendario-interactivo-placeholder">
+                    <span class="icono-calendario">📅</span>
+                    <h3>Módulo de Calendario Interactivo</h3>
+                    <p>Las fechas y eventos oficiales se cargarán automáticamente mediante JavaScript.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        body.classList.add("dark-mode");
+        if (toggleButton) toggleButton.textContent = "☀️";
+    }
+
+    if (toggleButton) {
+        toggleButton.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+            
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+                toggleButton.textContent = "☀️";
+            } else {
+                localStorage.setItem("theme", "light");
+                toggleButton.textContent = "🌙";
+            }
+        });
+    }
+});
+    </script>
+
+    <!-- Script de integración de JavaScript -->
+    <!-- <script src="js/calendario.js"></script> -->
+</body>
+</html>

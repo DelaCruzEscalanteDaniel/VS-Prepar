@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directorio Público</title>
+    <link rel="stylesheet" href="/styles/direct.css">
+</head>
+<body>
+<header>
+    <img src="logo.png" alt="Logo de Prepar" class="logo">
+
+    <h1><a href="index.html">Prepar</a></h1>
+
+    <div class="header-acciones">
+        <h2><a href="iniciar-sesion.html">¿Deseas Iniciar Sesión?</a></h2>
+        <button id="theme-toggle" class="btn-modo-oscuro" aria-label="Cambiar modo oscuro">🌙</button>
+    </div>
+</header>
+
+    <nav>
+        <a href="convocatoria.html">Convocatoria y Proceso</a>
+        <a href="directorio.html">Directorio Público</a>
+        <a href="foro.html">Foro Vecinal</a>
+        <a href="fotodenuncias.html">Foto Denuncias</a>
+        <a href="mapa.html">Mapa de Proyectos</a>
+    </nav>
+
+    <section class="directorio">
+        <h1 class="section-t1">Directorio</h1>
+        <h1>Directorio Público de Servidores Públicos</h1>
+        <p>Consulta los datos institucionales, módulos presenciales de atención y vías de contacto de las autoridades responsables del seguimiento del Presupuesto Participativo.</p>
+    </section>
+    <br>
+
+    <div class="buscador">
+        <input type="search" id="buscador" placeholder="Buscar por nombre, cargo o palabra clave...">
+        <br>
+        <label for="filtro">Filtrar por Alcaldía:</label>
+        <select id="filtro">
+            <option value="todas">Todas las Alcaldías</option>
+            <option value="cua">Cuauhtémoc</option>
+            <option value="mig">Miguel Hidalgo</option>
+            <option value="ben">Benito Juárez</option>
+            <option value="ven">Venustiano Carranza</option>
+            <option value="izo">Iztapalapa</option>
+            <option value="izo2">Iztacalco</option>
+        </select>
+    </div>
+    <br><br>
+    
+    <section>
+        <article class="servidor">
+            <img src="alcaldesa.png" alt="Foto" class="foto-servidor">
+            <object class="alcaldia">Iztapalapa</object>
+            <h2>Lic. Aleida Alavez Ruiz</h2>
+            <p>Cargo: Alcaldesa Constitucional</p>
+            <p>Sede: Aldama esq. Ayuntamiento, C.P. 09000</p>
+            <p>Atención: <a href="mailto:iztapalapa@cdmx.gob.mx">iztapalapa@cdmx.gob.mx</a></p>
+        </article>
+        
+        <article class="servidor">
+            <img src="alcaldesa.png" alt="Foto" class="foto-servidor">
+            <object class="alcaldia">Iztapalapa</object>
+            <h2>Lic. Aleida Alavez Ruiz</h2>
+            <p>Cargo: Alcaldesa Constitucional</p>
+            <p>Sede: Aldama esq. Ayuntamiento, C.P. 09000</p>
+            <p>Atención: <a href="mailto:iztapalapa@cdmx.gob.mx">iztapalapa@cdmx.gob.mx</a></p>
+        </article>
+
+        <article class="servidor">
+            <img src="alcaldesa.png" alt="Foto" class="foto-servidor">
+            <object class="alcaldia">Iztapalapa</object>
+            <h2>Lic. Aleida Alavez Ruiz</h2>
+            <p>Cargo: Alcaldesa Constitucional</p>
+            <p>Sede: Aldama esq. Ayuntamiento, C.P. 09000</p>
+            <p>Atención: <a href="mailto:iztapalapa@cdmx.gob.mx">iztapalapa@cdmx.gob.mx</a></p>
+        </article>
+
+        <article class="servidor">
+            <img src="alcaldesa.png" alt="Foto" class="foto-servidor">
+            <object class="alcaldia">Iztapalapa</object>
+            <h2>Lic. Aleida Alavez Ruiz</h2>
+            <p>Cargo: Alcaldesa Constitucional</p>
+            <p>Sede: Aldama esq. Ayuntamiento, C.P. 09000</p>
+            <p>Atención: <a href="mailto:iztapalapa@cdmx.gob.mx">iztapalapa@cdmx.gob.mx</a></p>
+        </article>
+    </section>
+
+        <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        body.classList.add("dark-mode");
+        if (toggleButton) toggleButton.textContent = "☀️";
+    }
+
+    if (toggleButton) {
+        toggleButton.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+            
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+                toggleButton.textContent = "☀️";
+            } else {
+                localStorage.setItem("theme", "light");
+                toggleButton.textContent = "🌙";
+            }
+        });
+    }
+});
+    </script>
+</body>
+</html>

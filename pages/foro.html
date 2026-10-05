@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foro Vecinal - Prepar</title>
+    <link rel="stylesheet" href="/styles/foro.css">
+</head>
+<body>
+<header>
+    <img src="logo.png" alt="Logo de Prepar" class="logo">
+
+    <h1><a href="index.html">Prepar</a></h1>
+
+    <div class="header-acciones">
+        <h2><a href="iniciar-sesion.html">¿Deseas Iniciar Sesión?</a></h2>
+        <button id="theme-toggle" class="btn-modo-oscuro" aria-label="Cambiar modo oscuro">🌙</button>
+    </div>
+</header>
+
+    <nav>
+        <a href="convocatoria.html">Convocatoria y Proceso</a>
+        <a href="directorio.html">Directorio Público</a>
+        <a href="foro.html" class="active">Foro Vecinal</a>
+        <a href="fotodenuncias.html">Foto Denuncias</a>
+        <a href="mapa.html">Mapa de Proyectos</a>
+    </nav>
+
+    <main class="layout-principal">
+        <section class="columna-izq">
+            <h1>Foro Vecinal</h1>
+            <p>Espacio de diálogo abierto para discutir y evaluar las propuestas del presupuesto participativo en tu comunidad.</p>
+
+            <div class="mipost">
+                <article>
+                    <span class="estado en-progreso">En Debate</span>
+                    <h2>Propuesta de iluminación LED para el parque central</h2>
+                    <p>Evaluación de la viabilidad técnica y colocación de luminarias solares en los andadores principales de la colonia.</p>
+                    <p style="font-size: 0.75rem; color: #777; margin-top: 0.2rem;">Iniciado por: Mariana R. | 14 comentarios</p>
+                    <div class="acciones">
+                        <button onclick="location.href='#'">Ver Discusión</button>
+                    </div>
+                </article>
+
+                <article>
+                    <span class="estado nuevo">Propuesta Nueva</span>
+                    <h2>Programa de bacheo y rescate de vialidades secundarias</h2>
+                    <p>Revisión de solicitudes prioritarias para la repavimentación de calles afectadas por la temporada de lluvias.</p>
+                    <p style="font-size: 0.75rem; color: #777; margin-top: 0.2rem;">Iniciado por: Carlos M. | 8 comentarios</p>
+                    <div class="acciones">
+                        <button onclick="location.href='#'">Ver Discusión</button>
+                    </div>
+                </article>
+
+                <article>
+                    <span class="estado resuelto">Consenso Alcanzado</span>
+                    <h2>Talleres comunitarios de cultura y deporte</h2>
+                    <p>Propuesta aprobada para destinar recursos a actividades recreativas gratuitas en los centros deportivos locales.</p>
+                    <p style="font-size: 0.75rem; color: #777; margin-top: 0.2rem;">Iniciado por: Sofía V. | 25 comentarios</p>
+                    <div class="acciones">
+                        <button onclick="location.href='#'">Ver Conclusión</button>
+                    </div>
+                </article>
+
+                <article>
+                    <span class="estado pendiente">En Revisión</span>
+                    <h2>Señalización vial y reductores de velocidad</h2>
+                    <p>Petición vecinal para la instalaciónés de topes y letreros informativos en zonas escolares de la demarcación.</p>
+                    <p style="font-size: 0.75rem; color: #777; margin-top: 0.2rem;">Iniciado por: Roberto G. | 5 comentarios</p>
+                    <div class="acciones">
+                        <button onclick="location.href='#'">Ver Discusión</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <aside class="columna-der">
+            <h2>Panel de Participación</h2>
+            
+            <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                <label for="alcaldia">Selecciona tu Alcaldía</label>
+                <select id="alcaldia" style="width: 100%; padding: 0.6rem 0.8rem; background: rgba(255, 255, 255, 0.9); border: 1px solid var(--color-border); border-radius: 8px; font-size: 0.85rem; color: var(--color-text-main); cursor: pointer; outline: none;">
+                    <option value="cuauhtemoc">Cuauhtémoc</option>
+                    <option value="benito-juarez">Benito Juárez</option>
+                    <option value="miguel-hidalgo">Miguel Hidalgo</option>
+                    <option value="coyoacan">Coyoacán</option>
+                    <option value="tlalpan">Tlalpan</option>
+                    <option value="iztapalapa">Iztapalapa</option>
+                </select>
+            </div>
+
+            <div class="zona-carga" style="padding: 1rem; margin-top: 0.2rem;">
+                <span style="font-size: 0.85rem; font-weight: 600; color: var(--color-footer-bg);">¿Tienes una nueva propuesta?</span>
+                <p style="font-size: 0.75rem; text-align: center;">Comparte una iniciativa o abre un nuevo tema de debate vecinal.</p>
+            </div>
+
+            <label for="titulo-propuesta">Título del Tema</label>
+            <input type="text" id="titulo-propuesta" placeholder="Ej. Reforestación de parque..." style="width: 100%; padding: 0.6rem 0.8rem; border: 1px solid var(--color-border); border-radius: 8px; font-size: 0.85rem; outline: none;">
+
+            <label for="descripcion-propuesta">Descripción y Detalles</label>
+            <textarea id="descripcion-propuesta" placeholder="Escribe los puntos clave de tu propuesta..."></textarea>
+
+            <button id="subir-foto">Publicar en el Foro</button>
+        </aside>
+    </main>
+
+        <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        body.classList.add("dark-mode");
+        if (toggleButton) toggleButton.textContent = "☀️";
+    }
+
+    if (toggleButton) {
+        toggleButton.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+            
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+                toggleButton.textContent = "☀️";
+            } else {
+                localStorage.setItem("theme", "light");
+                toggleButton.textContent = "🌙";
+            }
+        });
+    }
+});
+    </script>
+</body>
+</html>

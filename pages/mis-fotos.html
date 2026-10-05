@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Foto Denuncias</title>
+    <link rel="stylesheet" href="/styles/fotos.css">
+</head>
+<body>
+<header>
+    <img src="logo.png" alt="Logo de Prepar" class="logo">
+
+    <h1><a href="index.html">Prepar</a></h1>
+
+    <div class="header-acciones">
+        <h2><a href="iniciar-sesion.html">¿Deseas Iniciar Sesión?</a></h2>
+        <button id="theme-toggle" class="btn-modo-oscuro" aria-label="Cambiar modo oscuro">🌙</button>
+    </div>
+</header>
+
+    <nav>
+        <a href="convocatoria.html">Convocatoria y Proceso</a>
+        <a href="directorio.html">Directorio Público</a>
+        <a href="foro.html">Foro Vecinal</a>
+        <a href="fotodenuncias.html">Foto Denuncias</a>
+        <a href="mapa.html">Mapa de Proyectos</a>
+    </nav>
+
+    <nav class="subnav">
+        <a href="mis-fotos.html">Mis Foto Denuncias</a>
+        <a href="fotodenuncias.html">Muro Comunitario</a>
+    </nav>
+
+    <div class="layout-principal">
+        
+        <section class="columna-izq">
+            <h1>Mis publicaciones recientes</h1>
+            
+            <div class="mipost">
+                <article class="servidor">
+                    <img src="imagen1.jpg" alt="Reporte">
+                    <span class="estado pendiente">Pendiente</span>
+                    <h2>Baches en mi zona</h2>
+                    <p>Calle Dr Erazo, col Doctores, Cuauhtémoc</p>
+                    <div class="acciones">
+                        <button type="button">Editar</button>
+                        <button type="button">Eliminar</button>
+                    </div>
+                </article>
+
+                <article class="servidor">
+                    <img src="imagen2.jpg" alt="Reporte">
+                    <span class="estado en-progreso">En Progreso</span>
+                    <h2>Basura tirada en mi zona</h2>
+                    <p>Calle Av Amsterdam, col Condesa, Cuauhtémoc</p>
+                    <div class="acciones">
+                        <button type="button">Editar</button>
+                        <button type="button">Eliminar</button>
+                    </div>
+                </article>
+
+                <article class="servidor">
+                    <img src="imagen3.jpg" alt="Reporte">
+                    <span class="estado resuelto">Resuelto</span>
+                    <h2>Poste caído en mi zona</h2>
+                    <p>Calle 16 de septiembre, col Centro, Cuauhtémoc</p>
+                    <div class="acciones">
+                        <button type="button">Editar</button>
+                        <button type="button">Eliminar</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <aside class="columna-der">
+            <div class="zona-carga">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                <p>Arrastra o haz clic para subir una imagen</p>
+            </div>
+            <input type="file" id="foto-denuncia" accept="image/*" style="display: none;">
+            <input type="file" id="foto-denuncia" accept="image/*">
+            <br>
+            <label for="descripcion">Descripción del problema</label>
+            <textarea id="descripcion" placeholder="Describe brevemente la situación, ubicación y detalles relevantes..."></textarea>
+            
+            <button type="button" id="subir-foto">Enviar reporte</button>
+        </aside>
+
+    </div>
+
+        <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        body.classList.add("dark-mode");
+        if (toggleButton) toggleButton.textContent = "☀️";
+    }
+
+    if (toggleButton) {
+        toggleButton.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+            
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+                toggleButton.textContent = "☀️";
+            } else {
+                localStorage.setItem("theme", "light");
+                toggleButton.textContent = "🌙";
+            }
+        });
+    }
+});
+    </script>
+</body>
+</html>

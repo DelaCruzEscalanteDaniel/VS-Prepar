@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foto Denuncias</title>
+    <link rel="stylesheet" href="/styles/muro.css">
+</head>
+<body>
+<header>
+    <img src="logo.png" alt="Logo de Prepar" class="logo">
+
+    <h1><a href="index.html">Prepar</a></h1>
+
+    <div class="header-acciones">
+        <h2><a href="iniciar-sesion.html">¿Deseas Iniciar Sesión?</a></h2>
+        <button id="theme-toggle" class="btn-modo-oscuro" aria-label="Cambiar modo oscuro">🌙</button>
+    </div>
+</header>
+
+    <nav>
+        <a href="convocatoria.html">Convocatoria y Proceso</a>
+        <a href="directorio.html">Directorio Público</a>
+        <a href="foro.html">Foro Vecinal</a>
+        <a href="fotodenuncias.html">Foto Denuncias</a>
+        <a href="mapa.html">Mapa de Proyectos</a>
+    </nav>
+
+    <nav class="subnav">
+        <a href="mis-fotos.html">Mis Foto Denuncias</a>
+        <a href="fotodenuncias.html">Muro Comunitario</a>
+    </nav>
+
+    <main class="layout-principal">
+        
+        
+        <aside class="buscador">
+            <input type="search" id="buscador" placeholder="Search">
+            <label for="filtro">Filtros</label>
+            <div class="opciones-filtros">
+                <button type="button" class="filtro-tag">Estado</button>
+                <button type="button" class="filtro-tag">Categoría</button>
+                <button type="button" class="filtro-tag">Ubicación</button>
+            </div>
+        </aside>
+
+        <section class="contenido-principal">
+            <div class="encabezado-seccion">
+                <h1>Muro Comunitario</h1>
+                <p>Explora las denuncias de la comunidad</p>
+            </div>
+
+            <div class="posts">
+                <article class="servidor">
+                    <img src="parque.jpg" alt="Parque en abandono">
+                    <span class="estado pendiente">Pendiente</span>
+                    <h2>Parque en abandono</h2>
+                    <p>Calle Medellin, col Roma, Cuauhtémoc</p>
+                    <div class="card-footer">
+                        <span class="usuario">👤 Usuario</span>
+                        <a href="#" class="ver-detalles">Ver detalles</a>
+                    </div>
+                </article>
+
+                <article class="servidor">
+                    <img src="parque.jpg" alt="Parque en abandono">
+                    <span class="estado resuelto">Resuelto</span>
+                    <h2>Parque en abandono</h2>
+                    <p>Calle Medellin, col Roma, Cuauhtémoc</p>
+                    <div class="card-footer">
+                        <span class="usuario">👤 Usuario</span>
+                        <a href="#" class="ver-detalles">Ver detalles</a>
+                    </div>
+                </article>
+
+                <article class="servidor">
+                    <img src="parque.jpg" alt="Parque en abandono">
+                    <span class="estado en-progreso">En Progreso</span>
+                    <h2>Parque en abandono</h2>
+                    <p>Calle Medellin, col Roma, Cuauhtémoc</p>
+                    <div class="card-footer">
+                        <span class="usuario">👤 Usuario</span>
+                        <a href="#" class="ver-detalles">Ver detalles</a>
+                    </div>
+                </article>
+
+                <article class="servidor">
+                    <img src="parque.jpg" alt="Parque en abandono">
+                    <span class="estado resuelto">Resuelto</span>
+                    <h2>Parque en abandono</h2>
+                    <p>Calle Medellin, col Roma, Cuauhtémoc</p>
+                    <div class="card-footer">
+                        <span class="usuario">👤 Usuario</span>
+                        <a href="#" class="ver-detalles">Ver detalles</a>
+                    </div>
+                </article>
+
+                <article class="servidor">
+                    <img src="parque.jpg" alt="Parque en abandono">
+                    <span class="estado pendiente">Pendiente</span>
+                    <h2>Parque en abandono</h2>
+                    <p>Calle Medellin, col Roma, Cuauhtémoc</p>
+                    <div class="card-footer">
+                        <span class="usuario">👤 Usuario</span>
+                        <a href="#" class="ver-detalles">Ver detalles</a>
+                    </div>
+                </article>
+
+                <article class="servidor">
+                    <img src="parque.jpg" alt="Parque en abandono">
+                    <span class="estado en-progreso">En Progreso</span>
+                    <h2>Parque en abandono</h2>
+                    <p>Calle Medellin, col Roma, Cuauhtémoc</p>
+                    <div class="card-footer">
+                        <span class="usuario">👤 Usuario</span>
+                        <a href="#" class="ver-detalles">Ver detalles</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="paginacion">
+                <button id="prev">&lt;</button>
+                <span id="pagina-actual" class="activo">01</span>
+                <span id="total-paginas">/ 10 Páginas</span>
+                <button id="next">&gt;</button>
+            </div>
+        </section>
+    </main>
+
+        <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        body.classList.add("dark-mode");
+        if (toggleButton) toggleButton.textContent = "☀️";
+    }
+
+    if (toggleButton) {
+        toggleButton.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+            
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+                toggleButton.textContent = "☀️";
+            } else {
+                localStorage.setItem("theme", "light");
+                toggleButton.textContent = "🌙";
+            }
+        });
+    }
+});
+    </script>
+</body>
+</html>
