@@ -78,6 +78,7 @@ header .logo {
     width: auto;
     object-fit: contain;
     grid-column: 1;
+    border-radius: 50%;
 }
 
 header h1 {
